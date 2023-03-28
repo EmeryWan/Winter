@@ -12,6 +12,7 @@
     <module>winter-step-01</module>
     <module>winter-step-02</module>
     <module>winter-step-03</module>
+    <module>winter-step-04</module>
   </modules>
 
   <properties>

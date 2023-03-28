@@ -8,8 +8,6 @@ import java.util.Map;
 
 /**
  * BeanFactory <- AbstractBeanFactory <- AbstractAutowireCapableBeanFactory <- DefaultListableBeanFactory
- *
- * 默认的 Bean 工厂实现类
  */
 public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory implements BeanDefinitionRegistry {
 

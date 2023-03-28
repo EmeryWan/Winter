@@ -5,6 +5,8 @@ import cn.letout.winterframework.beans.factory.config.BeanDefinition;
 
 /**
  * BeanFactory <- AbstractBeanFactory <- AbstractAutowireCapableBeanFactory
+ *
+ * 默认实现 Bean 创建的抽象 Bean 工厂
  */
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory {
 
@@ -17,7 +19,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
             throw new BeansException("Instantiation of bean failed", e);
         }
 
-        addSingleton(beanName, bean);
+        registerSingleton(beanName, bean);
         return bean;
     }
 
