@@ -16,3 +16,4 @@
 - ❄ [实现 Bean 的定义、注册、获取](https://github.com/EmeryWan/winter/tree/step/winter-step-02)
 - ❄ [基于 Cglib 实现类的实例化策略](https://github.com/EmeryWan/winter/tree/step/winter-step-03)
 - ❄ [注入属性和依赖对象](https://github.com/EmeryWan/winter/tree/step/winter-step-04)
+- ❄ [❄ 使用资源加载器解析配置文件](https://github.com/EmeryWan/winter/tree/step/winter-step-05)

@@ -1,4 +1,4 @@
-package cn.letout.winterframework;
+package cn.letout.winterframework.beans;
 
 public class BeansException extends RuntimeException {
 

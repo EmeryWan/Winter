@@ -1,6 +1,6 @@
 package cn.letout.winterframework.beans.factory;
 
-import cn.letout.winterframework.BeansException;
+import cn.letout.winterframework.beans.BeansException;
 
 public interface BeanFactory {
 
