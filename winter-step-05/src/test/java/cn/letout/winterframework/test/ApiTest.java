@@ -1,13 +1,22 @@
 package cn.letout.winterframework.test;
 
+import cn.hutool.core.io.IoUtil;
 import cn.letout.winterframework.beans.PropertyValue;
 import cn.letout.winterframework.beans.PropertyValues;
 import cn.letout.winterframework.beans.factory.config.BeanDefinition;
 import cn.letout.winterframework.beans.factory.config.BeanReference;
 import cn.letout.winterframework.beans.factory.support.DefaultListableBeanFactory;
+import cn.letout.winterframework.beans.factory.xml.XmlBeanDefinitionReader;
+import cn.letout.winterframework.core.io.DefaultResourceLoader;
+import cn.letout.winterframework.core.io.Resource;
 import cn.letout.winterframework.test.beans.UserDao;
 import cn.letout.winterframework.test.beans.UserService;
+import org.junit.Before;
 import org.junit.Test;
+
+import javax.swing.plaf.PanelUI;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class ApiTest {
 
@@ -28,6 +37,47 @@ public class ApiTest {
 
         // 3. 获取 Bean
         UserService userService = (UserService) beanFactory.getBean("userService");
+        userService.queryUserInfo();
+    }
+
+
+    //
+
+
+    private DefaultResourceLoader resourceLoader;
+
+    @Before
+    public void init() {
+        resourceLoader = new DefaultResourceLoader();
+    }
+
+    @Test
+    public void testClasspath() throws IOException {
+        Resource resource = resourceLoader.getResource("classpath:important.properties");
+        InputStream inputStream = resource.getInputStream();
+        String content = IoUtil.readUtf8(inputStream);
+        System.out.println(content);
+    }
+
+    @Test
+    public void testFile() throws IOException {
+        Resource resource = resourceLoader.getResource("src/test/resources/important.properties");
+        InputStream inputStream = resource.getInputStream();
+        String content = IoUtil.readUtf8(inputStream);
+        System.out.println(content);
+    }
+
+    @Test
+    public void testURL() throws IOException {}
+
+    @Test
+    public void testXml() {
+        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+
+        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
+        reader.loadBeanDefinitions("classpath:spring.xml");
+
+        UserService userService = (UserService) beanFactory.getBean("userService", UserService.class);
         userService.queryUserInfo();
     }
 
